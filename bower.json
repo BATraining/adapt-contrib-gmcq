@@ -1,0 +1,22 @@
+{
+  "name": "adapt-gmcq",
+  "version": "0.0.2",
+  "homepage": "https://github.com/BATraining/adapt-gmcq",
+  "authors": [
+    "Daryl Hedley <darylhedley@hotmail.com>",
+    "Himanshu Rajotia <himanshu.rajotia@credipoint.com>"
+  ],
+  "displayName" : "Graphical Multiple Choice Question",
+  "component" : "gMcq",
+  "assetFields" : [
+    "_items[]._graphic.small",
+    "_items[]._graphic.large"
+  ],
+  "description": "A multiple choice question component, with images",
+  "main": "/js/adapt-gmcq.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPLv3"
+}
