@@ -27,7 +27,7 @@ define(function(require) {
         },
 
         onItemSelected: function(event) {
-
+            event.preventDefault();
             var selectedItemObject = this.model.get('_items')[$(event.currentTarget).parent('.gmcq-item').index()];
 
             if (this.model.get('_isEnabled') && !this.model.get('_isSubmitted')) {
@@ -75,7 +75,7 @@ define(function(require) {
 
         // hack for IE8
         forceChangeEvent: function(event) {
-
+            event.preventDefault();
             $("#" + $(event.currentTarget).closest("label").attr("for")).change();
 
         }
