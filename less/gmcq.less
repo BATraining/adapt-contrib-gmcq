@@ -1,8 +1,42 @@
 .gmcq-component {
-    .gmcq-body-inner,
-    .gmcq-instruction-inner {
-        font-size: 18px !important;
+    &.gmcq-column-layout {
+        .gmcq-widget {
+            // Font size set to 0 so there's no gap between items
+            font-size: 0;
+            text-align: center;
+        }
+
+        .gmcq-item {
+            display: inline-block;
+            float: none;
+            vertical-align: top;
+
+            .dir-rtl & {
+                float: none;
+            }
+
+            &.even,
+            &.odd {
+                label {
+                    margin: 2.5%;
+
+                    .dir-rtl & {
+                        margin: 2.5%;
+                    }
+                }
+            }
+        }
+
+        .gmcq-item-inner {
+            font-size: @body-text-font-size;
+            text-align: left;
+
+            .dir-rtl & {
+                text-align: right;
+            }
+        }
     }
+	
     .gmcq-item {
         position: relative;
         width: 50%;
@@ -11,6 +45,7 @@
         .dir-rtl & {
             float: right;
         }
+
         &.even {
             label {
                 margin-left: 5%;
@@ -20,6 +55,7 @@
                 }
             }
         }
+
         &.odd {
             label {
                 margin-right: 5%;
@@ -29,9 +65,10 @@
                 }
             }
         }
+
         @media all and (max-width:760px) {
             width: 100%;
-            &.even,
+            &.even, 
             &.odd {
                 label {
                     margin-left: 0%;
@@ -40,6 +77,7 @@
             }
         }
     }
+
     .gmcq-item label {
         color: @item-text-color;
         display: block;
@@ -50,9 +88,11 @@
         background-color: @item-color;
         overflow: hidden;
         cursor: pointer;
+
         img {
             vertical-align: bottom;
         }
+
         .gmcq-answer-icon {
             color: @item-text-color;
             &.radio {
@@ -63,21 +103,22 @@
                 }
             }
             &.checkbox {
-                border: 3px solid #102a3e;
+                border: 3px solid @item-text-color;
                 width: 18px;
                 height: 18px;
                 font-size: 18px;
                 font-weight: bold;
-                border-radius: 5px;
+                border-radius: 2px;
                 &:before {
                     content: " ";
                 }
             }
         }
+
         &.selected {
             color: @item-text-color-selected;
             background-color: @item-color-selected;
-            box-shadow: 0 0 10px 1px #3fa9f6;
+
             .gmcq-answer-icon {
                 &.radio {
                     &:before {
@@ -86,12 +127,12 @@
                 }
                 &.checkbox {
                     border: @item-border;
-                    border-color: #102a3e;
+                    border-color: @item-text-color-selected;
                     width: 18px;
                     height: 18px;
                     font-size: 18px;
                     font-weight: bold;
-                    border-radius: 5px;
+                    border-radius: 2px;
                     &:before {
                         content: "\e633";
                     }
@@ -99,6 +140,7 @@
             }
         }
     }
+
     .gmcq-item-inner {
         padding: @item-padding;
         padding-left: (@icon-size+(@item-padding-left*2));
@@ -107,8 +149,9 @@
             padding-right: (@icon-size+(@item-padding-left*2));
         }
     }
+
     .gmcq-item input {
-        position: fixed;
+        position: absolute;
         top: 25px;
         left: 25px;
         .dir-rtl & {
@@ -116,9 +159,11 @@
             right: 25px;
         }
     }
+
     .gmcq-item-checkbox {
         position: relative;
     }
+
     .gmcq-item-state {
         background: none;
         position: absolute;
@@ -133,14 +178,17 @@
             right: 10px;
         }
     }
+
     .gmcq-correct-icon {
         color: @validation-success;
         display: none;
     }
+
     .gmcq-incorrect-icon {
         color: @validation-error;
         display: none;
     }
+
     .gmcq-widget {
         &.show-user-answer {
             .gmcq-item-icon {
@@ -157,14 +205,17 @@
                 }
             }
         }
+
         &.show-correct-answer {
             .gmcq-item-icon {
                 display: none;
             }
-            .selected .gmcq-correct-icon {
+            .incorrect .selected .gmcq-correct-icon,
+            .correct .selected .gmcq-correct-icon {
                 display: block;
             }
         }
+
         &.disabled {
             .gmcq-item label.selected.disabled {
                 background-color: @item-color-selected;
@@ -176,13 +227,19 @@
                 border-color: @item-border-color-disabled;
                 cursor: default;
             }
+
             .gmcq-item.correct .selected .state {
                 color: @validation-success;
             }
+
             .gmcq-item.incorrect .selected .state {
                 color: @validation-error;
             }
         }
+    }
+    .graphic-attribution {
+    	font-size:0.75em;
+    	line-height: 1em;
     }
 }
 
